@@ -19,7 +19,8 @@ import {
   selectNextPrompt,
   Vote 
 } from "@/games/ten-ten-but/game";
-import { ALL_TEN_TEN_BUT_PROMPTS, Prompt } from "@/data/prompts/ten-ten-but";
+import { ALL_TEN_TEN_BUT_PROMPTS } from "@/data/prompts/ten-ten-but";
+import { Prompt } from "@/types/prompt";
 import Link from "next/link";
 
 type GamePhase = 'PROMPT' | 'PASS_PHONE' | 'VOTING' | 'RESULTS' | 'FINISHED';
@@ -94,7 +95,7 @@ export default function TenTenButGame() {
     return (
       <Container size="xs" py="xl">
         <Stack align="center" justify="center" gap="xl" style={{ minHeight: '80vh' }}>
-          <Title order={2} textAlign="center" mb="sm">Le Prompt</Title>
+          <Title order={2} style={{ textAlign: 'center' }} mb="sm">Le Prompt</Title>
           <Paper p="xl" radius="lg" withBorder shadow="md" style={{ textAlign: 'center' }}>
             <Text size="xl" fw={700} style={{ lineHeight: 1.4 }}>
               "{currentPrompt?.text}"
@@ -112,7 +113,7 @@ export default function TenTenButGame() {
     return (
       <Container size="xs" py="xl">
         <Stack align="center" justify="center" gap="xl" style={{ minHeight: '80vh' }}>
-          <Title order={2} textAlign="center">Passe le téléphone</Title>
+          <Title order={2} style={{ textAlign: 'center' }}>Passe le téléphone</Title>
           <Paper p="xl" radius="lg" withBorder shadow="sm" style={{ textAlign: 'center' }}>
             <Text size="lg" fw={500}>C'est au tour de :</Text>
             <Title order={3} mt="sm" style={{ fontSize: '2rem' }}>
@@ -131,8 +132,8 @@ export default function TenTenButGame() {
     return (
       <Container size="xs" py="xl">
         <Stack align="center" justify="center" gap="xl" style={{ minHeight: '80vh' }}>
-          <Title order={2} textAlign="center" c="dark.9">Ta Note</Title>
-          <Text textAlign="center" c="dark.7" fw={500}>
+          <Title order={2} style={{ textAlign: 'center', color: 'var(--mantine-color-dark-9)' }}>Ta Note</Title>
+          <Text style={{ textAlign: 'center' }} c="dark.7" fw={500}>
             {players[currentPlayerIndex]}, quelle note donnes-tu ?
           </Text>
           
@@ -168,7 +169,7 @@ export default function TenTenButGame() {
     return (
       <Container size="xs" py="xl">
         <Stack align="center" gap="lg">
-          <Title order={2} textAlign="center">Les Votes</Title>
+          <Title order={2} style={{ textAlign: 'center' }}>Les Votes</Title>
           
           <Stack gap="xs" w="100%">
             {votes.map((vote, index) => (
@@ -196,7 +197,7 @@ export default function TenTenButGame() {
             <Text fw={700} size="lg">
               {votes[outlierIndex].value} / 10
             </Text>
-            <Text size="sm" mt="sm" italic>
+            <Text size="sm" mt="sm" style={{ fontStyle: 'italic' }}>
               Pourquoi seulement {votes[outlierIndex].value} ?
             </Text>
           </Paper>
@@ -216,8 +217,8 @@ export default function TenTenButGame() {
     return (
       <Container size="xs" py="xl">
         <Stack align="center" justify="center" gap="xl" style={{ minHeight: '80vh' }}>
-          <Title order={2} textAlign="center">Partie terminée !</Title>
-          <Text textAlign="center" size="lg">
+          <Title order={2} style={{ textAlign: 'center' }}>Partie terminée !</Title>
+          <Text style={{ textAlign: 'center' }} size="lg">
             Merci d'avoir joué.
           </Text>
           <Stack gap="md" w="100%">

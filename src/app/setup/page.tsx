@@ -35,7 +35,7 @@ export default function SetupPage() {
   return (
     <Container size="xs" py="xl">
       <Stack align="center" gap="md">
-        <Title order={2} textAlign="center" mb="sm">
+        <Title order={2} style={{ textAlign: 'center' }} mb="sm">
           Qui joue ?
         </Title>
         
@@ -55,7 +55,7 @@ export default function SetupPage() {
           {players.map((player, index) => (
             <Paper key={index} withBorder p="sm" radius="md">
               <Group justify="space-between">
-                <Text fontWeight={500} c="black">{player}</Text>
+                <Text style={{ fontWeight: 500 }} c="black">{player}</Text>
                 <ActionIcon 
                   color="red" 
                   variant="subtle" 
@@ -67,7 +67,7 @@ export default function SetupPage() {
             </Paper>
           ))}
           {players.length === 0 && (
-            <Text c="black" textAlign="center" py="xl" style={{ opacity: 0.6 }}>
+            <Text c="black" py="xl" style={{ opacity: 0.6, textAlign: 'center' }}>
               Aucun joueur ajouté.
             </Text>
           )}

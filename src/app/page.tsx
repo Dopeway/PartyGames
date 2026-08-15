@@ -9,7 +9,7 @@ export default function Home() {
           <Title order={1} style={{ fontSize: '3rem', fontWeight: 900, textAlign: 'center' }}>
             PARTY GAMES
           </Title>
-          <Text size="lg" c="black" textAlign="center" mt="sm" style={{ opacity: 0.8 }}>
+          <Text size="lg" c="black" mt="sm" style={{ opacity: 0.8, textAlign: 'center' }}>
             Des jeux simples. <br />
             Des débats beaucoup moins simples.
           </Text>

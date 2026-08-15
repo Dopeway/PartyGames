@@ -18,10 +18,10 @@ export default function GamesPage() {
     <Container size="xs" py="xl">
       <Stack gap="lg">
         <Stack gap={0} mb="md">
-          <Title order={2} textAlign="center">
+          <Title order={2} style={{ textAlign: 'center' }}>
             Choisissez un jeu
           </Title>
-          <Text c="black" textAlign="center" mt="xs" style={{ opacity: 0.8 }}>
+          <Text c="black" mt="xs" style={{ opacity: 0.8, textAlign: 'center' }}>
             Sélectionnez l'expérience que vous voulez lancer.
           </Text>
         </Stack>
