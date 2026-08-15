@@ -81,6 +81,9 @@ export default function SetupPage() {
           fullWidth
           disabled={!canContinue}
           style={{ fontSize: '1.2rem' }}
+          onClick={() => {
+            localStorage.setItem('party_players', JSON.stringify(players));
+          }}
         >
           Continuer
         </Button>

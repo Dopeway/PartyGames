@@ -10,7 +10,8 @@ import {
   Slider, 
   Paper, 
   Group,
-  Center
+  Center,
+  Box
 } from "@mantine/core";
 import { 
   calculateAverage, 
@@ -95,7 +96,7 @@ export default function TenTenButGame() {
         <Stack align="center" justify="center" gap="xl" style={{ minHeight: '80vh' }}>
           <Title order={2} textAlign="center" mb="sm">Le Prompt</Title>
           <Paper p="xl" radius="lg" withBorder shadow="md" style={{ textAlign: 'center' }}>
-            <Text size="xl" fw={700} style={{ lineHeight: 1.4, color: 'black' }}>
+            <Text size="xl" fw={700} style={{ lineHeight: 1.4 }}>
               "{currentPrompt?.text}"
             </Text>
           </Paper>
@@ -113,8 +114,8 @@ export default function TenTenButGame() {
         <Stack align="center" justify="center" gap="xl" style={{ minHeight: '80vh' }}>
           <Title order={2} textAlign="center">Passe le téléphone</Title>
           <Paper p="xl" radius="lg" withBorder shadow="sm" style={{ textAlign: 'center' }}>
-            <Text size="lg" c="black" fw={500}>C'est au tour de :</Text>
-            <Title order={3} mt="sm" style={{ fontSize: '2rem', color: 'black' }}>
+            <Text size="lg" fw={500}>C'est au tour de :</Text>
+            <Title order={3} mt="sm" style={{ fontSize: '2rem' }}>
               {players[currentPlayerIndex]}
             </Title>
           </Paper>
@@ -130,32 +131,30 @@ export default function TenTenButGame() {
     return (
       <Container size="xs" py="xl">
         <Stack align="center" justify="center" gap="xl" style={{ minHeight: '80vh' }}>
-          <Title order={2} textAlign="center" style={{ color: 'black' }}>Ta Note</Title>
-          <Text textAlign="center" c="black" fw={500}>
+          <Title order={2} textAlign="center" c="dark.9">Ta Note</Title>
+          <Text textAlign="center" c="dark.7" fw={500}>
             {players[currentPlayerIndex]}, quelle note donnes-tu ?
           </Text>
           
-          <Stack align="center" gap="xs">
-            <Text size="3rem" fw={900} c="indigo">
-              {currentVoteValue} / 10
-            </Text>
-            <Slider 
-              value={currentVoteValue} 
-              onChange={setCurrentVoteValue} 
-              min={0} 
-              max={10} 
-              step={1} 
-              label="Note"
-              styles={{
-                range: { height: 12 },
-                handle: { width: 24, height: 24 }
-              }}
-            />
-            <Group justify="space-between" w="100%" mt="sm">
-              <Text size="sm" fw={500}>0</Text>
-              <Text size="sm" fw={500}>10</Text>
-            </Group>
-          </Stack>
+          <Box w="100%" maw={400} mx="auto">
+            <Stack align="center" gap="xs">
+              <Text size="3rem" fw={900} c="indigo">
+                {currentVoteValue} / 10
+              </Text>
+              <Slider 
+                value={currentVoteValue} 
+                onChange={setCurrentVoteValue} 
+                min={0} 
+                max={10} 
+                step={1} 
+                w="100%"
+              />
+              <Group justify="space-between" w="100%" mt="sm">
+                <Text size="sm" fw={500}>0</Text>
+                <Text size="sm" fw={500}>10</Text>
+              </Group>
+            </Stack>
+          </Box>
 
           <Button size="xl" radius="xl" fullWidth onClick={handleVoteSubmitted}>
             Valider
@@ -183,15 +182,15 @@ export default function TenTenButGame() {
           </Stack>
 
           <Paper p="xl" radius="lg" withBorder shadow="md" style={{ textAlign: 'center', backgroundColor: 'var(--mantine-color-indigo-light)' }}>
-            <Text size="sm" c="black" fw={700}>MOYENNE</Text>
-            <Title order={2} style={{ fontSize: '3rem', color: 'black' }}>
+            <Text size="sm" fw={700}>MOYENNE</Text>
+            <Title order={2} style={{ fontSize: '3rem' }}>
               {average} / 10
             </Title>
           </Paper>
 
           <Paper p="xl" radius="lg" withBorder shadow="sm" style={{ textAlign: 'center', border: '2px solid var(--mantine-color-indigo-filled)' }}>
-            <Text size="sm" c="black" fw={700}>🎯 LE PLUS ÉLOIGNÉ</Text>
-            <Title order={3} mt="xs" style={{ color: 'black' }}>
+            <Text size="sm" fw={700}>🎯 LE PLUS ÉLOIGNÉ</Text>
+            <Title order={3} mt="xs">
               {outlierPlayer}
             </Title>
             <Text fw={700} size="lg">
